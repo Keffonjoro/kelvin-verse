@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Resume — Kelvin Njoroge Thairu</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <link rel="stylesheet" href="pages.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&family=Fira+Code:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+
+<div class="cursor-dot"></div>
+<div class="cursor-ring"></div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo"><span class="accent">&lt;</span>KT<span class="accent">/&gt;</span></a>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#projects">Projects</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="resume.html" class="nav-active">Resume</a></li>
+    <li><a href="hire.html">Hire Me</a></li>
+    <li><a href="index.html#contact" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero resume-hero">
+  <div class="page-hero-bg"></div>
+  <div class="container">
+    <div class="page-hero-content">
+      <div class="page-hero-label reveal"><span class="accent">// </span>curriculum_vitae</div>
+      <h1 class="page-hero-title reveal">Kelvin Njoroge <span class="accent">Thairu</span></h1>
+      <p class="page-hero-sub reveal">Computer Science Student &nbsp;·&nbsp; Aspiring Software Developer &nbsp;·&nbsp; Kenya 🇰🇪</p>
+      <div class="resume-actions reveal">
+        <a href="#" class="btn btn-primary" id="download-btn">
+          <i class="fas fa-download"></i> Download Resume PDF
+        </a>
+        <a href="index.html#contact" class="btn btn-secondary">
+          <i class="fas fa-paper-plane"></i> Get In Touch
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESUME BODY -->
+<section class="resume-section">
+  <div class="container">
+    <div class="resume-grid">
+
+      <!-- LEFT COLUMN -->
+      <aside class="resume-sidebar">
+
+        <!-- Contact -->
+        <div class="sidebar-block reveal">
+          <h3 class="sidebar-title"><i class="fas fa-address-card"></i> Contact</h3>
+          <ul class="sidebar-list">
+            <li>
+              <i class="fas fa-envelope"></i>
+              <a href="mailto:kelvinnjoroget@gmail.com">kelvinnjoroget@gmail.com</a>
+            </li>
+            <li>
+              <i class="fab fa-github"></i>
+              <a href="https://github.com/Keffonjoro" target="_blank">github.com/Keffonjoro</a>
+            </li>
+            <li>
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Kenya 🇰🇪</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Education -->
+        <div class="sidebar-block reveal">
+          <h3 class="sidebar-title"><i class="fas fa-graduation-cap"></i> Education</h3>
+          <div class="edu-item">
+            <span class="edu-degree">BSc Computer Science</span>
+            <span class="edu-school">St Paul's University</span>
+            <span class="edu-status"><span class="status-dot"></span> Currently Enrolled</span>
+          </div>
+        </div>
+
+        <!-- Programming Languages -->
+        <div class="sidebar-block reveal">
+          <h3 class="sidebar-title"><i class="fas fa-code"></i> Languages</h3>
+          <div class="skill-pills">
+            <span class="skill-pill py">Python</span>
+            <span class="skill-pill js">JavaScript</span>
+            <span class="skill-pill html">HTML</span>
+            <span class="skill-pill css">CSS</span>
+          </div>
+        </div>
+
+        <!-- Tools -->
+        <div class="sidebar-block reveal">
+          <h3 class="sidebar-title"><i class="fas fa-tools"></i> Tools</h3>
+          <div class="skill-pills">
+            <span class="skill-pill git">Git</span>
+            <span class="skill-pill git">GitHub</span>
+            <span class="skill-pill linux">Linux</span>
+            <span class="skill-pill vscode">VS Code</span>
+            <span class="skill-pill net">Networking</span>
+          </div>
+        </div>
+
+        <!-- Core Competencies -->
+        <div class="sidebar-block reveal">
+          <h3 class="sidebar-title"><i class="fas fa-star"></i> Competencies</h3>
+          <ul class="competency-list">
+            <li><i class="fas fa-check"></i> Problem Solving</li>
+            <li><i class="fas fa-check"></i> Debugging</li>
+            <li><i class="fas fa-check"></i> Version Control</li>
+            <li><i class="fas fa-check"></i> Technical Documentation</li>
+            <li><i class="fas fa-check"></i> Responsive Web Design</li>
+            <li><i class="fas fa-check"></i> Frontend Development</li>
+          </ul>
+        </div>
+
+      </aside>
+
+      <!-- RIGHT COLUMN -->
+      <main class="resume-main">
+
+        <!-- Summary -->
+        <div class="resume-block reveal">
+          <h2 class="resume-block-title">
+            <span class="block-icon"><i class="fas fa-user"></i></span>
+            Professional Summary
+          </h2>
+          <p class="summary-text">
+            Motivated computer science student at St Paul's University with a strong interest in software development, cybersecurity, and problem solving through programming. Experienced in building small web applications and Python tools while continuously learning modern technologies. Actively seeking internship opportunities to apply academic knowledge in real-world environments and grow as a developer.
+          </p>
+        </div>
+
+        <!-- Technical Skills -->
+        <div class="resume-block reveal">
+          <h2 class="resume-block-title">
+            <span class="block-icon"><i class="fas fa-laptop-code"></i></span>
+            Technical Skills
+          </h2>
+          <div class="skills-table">
+            <div class="skill-row">
+              <span class="skill-label">Programming Languages</span>
+              <div class="skill-tags">
+                <span>Python</span><span>JavaScript</span><span>HTML</span><span>CSS</span>
+              </div>
+            </div>
+            <div class="skill-row">
+              <span class="skill-label">Web Development</span>
+              <div class="skill-tags">
+                <span>Responsive Design</span><span>Frontend Development</span><span>JavaScript Interactivity</span>
+              </div>
+            </div>
+            <div class="skill-row">
+              <span class="skill-label">Tools & Technologies</span>
+              <div class="skill-tags">
+                <span>Git</span><span>GitHub</span><span>Linux</span><span>VS Code</span><span>Networking Fundamentals</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Projects -->
+        <div class="resume-block reveal">
+          <h2 class="resume-block-title">
+            <span class="block-icon"><i class="fas fa-rocket"></i></span>
+            Projects
+          </h2>
+
+          <div class="resume-project">
+            <div class="rp-header">
+              <div>
+                <h3>Church Website — AIC Zion Zambezi</h3>
+                <span class="rp-stack">HTML · CSS · JavaScript</span>
+              </div>
+              <a href="index.html#projects" class="rp-link"><i class="fas fa-external-link-alt"></i> View</a>
+            </div>
+            <p>Developed a responsive church website to improve digital communication within the congregation. Features include announcements, prayer requests, and event information. Built with a focus on accessibility and mobile-first design.</p>
+            <ul class="rp-highlights">
+              <li>Fully responsive layout across mobile, tablet, and desktop</li>
+              <li>Prayer request submission functionality</li>
+              <li>Events and announcements section</li>
+            </ul>
+          </div>
+
+          <div class="resume-project">
+            <div class="rp-header">
+              <div>
+                <h3>Python Practice Projects</h3>
+                <span class="rp-stack">Python</span>
+              </div>
+              <a href="index.html#projects" class="rp-link"><i class="fas fa-external-link-alt"></i> View</a>
+            </div>
+            <p>A growing collection of Python scripts focused on automation, small utilities, and problem-solving exercises that demonstrate applied programming knowledge.</p>
+            <ul class="rp-highlights">
+              <li>File automation and batch processing scripts</li>
+              <li>Problem-solving algorithms and utilities</li>
+              <li>Data processing tools</li>
+            </ul>
+          </div>
+
+          <div class="resume-project">
+            <div class="rp-header">
+              <div>
+                <h3>Cybersecurity Learning Lab</h3>
+                <span class="rp-stack">Linux · Networking · Security</span>
+              </div>
+              <a href="index.html#projects" class="rp-link"><i class="fas fa-external-link-alt"></i> View</a>
+            </div>
+            <p>Hands-on experimentation with basic cybersecurity concepts including network security principles, encryption basics, and system safety practices in a controlled environment.</p>
+            <ul class="rp-highlights">
+              <li>Network security fundamentals and threat analysis</li>
+              <li>Encryption and decryption experiments</li>
+              <li>Ethical hacking basics and system hardening</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Activities -->
+        <div class="resume-block reveal">
+          <h2 class="resume-block-title">
+            <span class="block-icon"><i class="fas fa-users"></i></span>
+            Activities & Involvement
+          </h2>
+          <ul class="activities-list">
+            <li>
+              <div class="act-dot"></div>
+              <div>
+                <h4>Self-Directed Programming Practice</h4>
+                <p>Consistent daily coding practice across web development and Python programming through personal projects.</p>
+              </div>
+            </li>
+            <li>
+              <div class="act-dot"></div>
+              <div>
+                <h4>Software Development Communities</h4>
+                <p>Active participation in online developer communities, contributing to discussions and learning from experienced developers.</p>
+              </div>
+            </li>
+            <li>
+              <div class="act-dot"></div>
+              <div>
+                <h4>Continuous Learning</h4>
+                <p>Ongoing study through coding projects, technical reading, and hands-on experimentation with new technologies.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+      </main>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="footer">
+  <div class="footer-inner">
+    <div class="footer-logo"><span class="accent">&lt;</span>KT<span class="accent">/&gt;</span></div>
+    <p class="footer-copy">© 2025 Kelvin Njoroge Thairu · Kenya 🇰🇪</p>
+    <div class="footer-socials">
+      <a href="https://github.com/Keffonjoro" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      <a href="mailto:kelvinnjoroget@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+    </div>
+  </div>
+</footer>
+
+<script src="pages.js"></script>
+</body>
+</html>

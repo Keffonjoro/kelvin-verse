@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blog — Kelvin Njoroge Thairu</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <link rel="stylesheet" href="pages.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&family=Fira+Code:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+
+<div class="cursor-dot"></div>
+<div class="cursor-ring"></div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo"><span class="accent">&lt;</span>KT<span class="accent">/&gt;</span></a>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#projects">Projects</a></li>
+    <li><a href="blog.html" class="nav-active">Blog</a></li>
+    <li><a href="resume.html">Resume</a></li>
+    <li><a href="hire.html">Hire Me</a></li>
+    <li><a href="index.html#contact" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="container">
+    <div class="page-hero-content">
+      <div class="page-hero-label reveal"><span class="accent">// </span>learning_journal</div>
+      <h1 class="page-hero-title reveal">Learning in <span class="accent">Public</span></h1>
+      <p class="page-hero-sub reveal">Notes, discoveries, and lessons from my journey in software development.</p>
+
+      <!-- Search -->
+      <div class="search-wrap reveal">
+        <i class="fas fa-search search-icon"></i>
+        <input type="text" id="search-input" placeholder="Search articles..." autocomplete="off"/>
+        <span class="search-clear" id="search-clear"><i class="fas fa-times"></i></span>
+      </div>
+
+      <!-- Filters -->
+      <div class="filter-chips reveal">
+        <button class="filter-chip active" data-filter="all">All</button>
+        <button class="filter-chip" data-filter="python">Python</button>
+        <button class="filter-chip" data-filter="cybersecurity">Cybersecurity</button>
+        <button class="filter-chip" data-filter="webdev">Web Development</button>
+        <button class="filter-chip" data-filter="ml">Machine Learning</button>
+        <button class="filter-chip" data-filter="concepts">Programming Concepts</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG GRID -->
+<section class="blog-main">
+  <div class="container">
+
+    <div class="blog-count reveal"><span id="article-count">5</span> articles</div>
+
+    <div class="blog-articles" id="articles-grid">
+
+      <!-- Article 1 -->
+      <article class="article-card reveal" data-category="webdev">
+        <div class="article-meta">
+          <span class="article-cat webdev">Web Development</span>
+          <span class="article-date"><i class="fas fa-calendar-alt"></i> March 2025</span>
+        </div>
+        <div class="article-icon"><i class="fas fa-globe"></i></div>
+        <h2>What I Learned Building My First Website</h2>
+        <p>Lessons learned while designing and deploying my first responsive website — including layout design, mobile responsiveness, and getting it live on the internet.</p>
+        <div class="article-footer">
+          <span class="read-time"><i class="fas fa-clock"></i> 5 min read</span>
+          <a href="#" class="article-btn">Read More <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </article>
+
+      <!-- Article 2 -->
+      <article class="article-card reveal featured-article" data-category="python">
+        <div class="article-badge">Featured</div>
+        <div class="article-meta">
+          <span class="article-cat python">Python</span>
+          <span class="article-date"><i class="fas fa-calendar-alt"></i> February 2025</span>
+        </div>
+        <div class="article-icon"><i class="fab fa-python"></i></div>
+        <h2>Beginner's Guide to Python Automation</h2>
+        <p>A simple explanation of how Python can automate everyday tasks — like file organization, renaming files in bulk, and basic data processing — saving hours of manual work.</p>
+        <div class="article-footer">
+          <span class="read-time"><i class="fas fa-clock"></i> 7 min read</span>
+          <a href="#" class="article-btn">Read More <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </article>
+
+      <!-- Article 3 -->
+      <article class="article-card reveal" data-category="cybersecurity">
+        <div class="article-meta">
+          <span class="article-cat cybersecurity">Cybersecurity</span>
+          <span class="article-date"><i class="fas fa-calendar-alt"></i> January 2025</span>
+        </div>
+        <div class="article-icon"><i class="fas fa-shield-halved"></i></div>
+        <h2>Understanding Basic Network Security</h2>
+        <p>An introduction to common network threats including eavesdropping, man-in-the-middle attacks, and denial-of-service — and what developers should know to protect their applications.</p>
+        <div class="article-footer">
+          <span class="read-time"><i class="fas fa-clock"></i> 6 min read</span>
+          <a href="#" class="article-btn">Read More <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </article>
+
+      <!-- Article 4 -->
+      <article class="article-card reveal" data-category="concepts">
+        <div class="article-meta">
+          <span class="article-cat concepts">Programming Concepts</span>
+          <span class="article-date"><i class="fas fa-calendar-alt"></i> December 2024</span>
+        </div>
+        <div class="article-icon"><i class="fas fa-code"></i></div>
+        <h2>My Journey Learning Computer Science</h2>
+        <p>Reflections on studying computer science at St Paul's University — what's been challenging, what's been exciting, and how building practical projects has accelerated my understanding.</p>
+        <div class="article-footer">
+          <span class="read-time"><i class="fas fa-clock"></i> 4 min read</span>
+          <a href="#" class="article-btn">Read More <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </article>
+
+      <!-- Article 5 -->
+      <article class="article-card reveal" data-category="concepts">
+        <div class="article-meta">
+          <span class="article-cat concepts">Programming Concepts</span>
+          <span class="article-date"><i class="fas fa-calendar-alt"></i> November 2024</span>
+        </div>
+        <div class="article-icon"><i class="fab fa-github"></i></div>
+        <h2>Why Every Developer Should Learn Git and GitHub</h2>
+        <p>An explanation of how version control works, why Git is non-negotiable for any developer, and how GitHub turns your code into a professional portfolio that employers actually look at.</p>
+        <div class="article-footer">
+          <span class="read-time"><i class="fas fa-clock"></i> 5 min read</span>
+          <a href="#" class="article-btn">Read More <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- No results -->
+    <div class="no-results" id="no-results">
+      <i class="fas fa-search"></i>
+      <p>No articles found. Try a different search or category.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="blog-cta">
+  <div class="container">
+    <div class="cta-card reveal">
+      <i class="fas fa-pen-nib cta-icon"></i>
+      <h3>More articles coming soon</h3>
+      <p>I write regularly about what I'm learning. Follow my GitHub to stay updated on new posts and projects.</p>
+      <a href="https://github.com/Keffonjoro" target="_blank" class="btn btn-primary">
+        <i class="fab fa-github"></i> Follow on GitHub
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="footer">
+  <div class="footer-inner">
+    <div class="footer-logo"><span class="accent">&lt;</span>KT<span class="accent">/&gt;</span></div>
+    <p class="footer-copy">© 2025 Kelvin Njoroge Thairu · Kenya 🇰🇪</p>
+    <div class="footer-socials">
+      <a href="https://github.com/Keffonjoro" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      <a href="mailto:kelvinnjoroget@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+    </div>
+  </div>
+</footer>
+
+<script src="pages.js"></script>
+</body>
+</html>

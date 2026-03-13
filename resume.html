@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Resume — Kelvin Njoroge Thairu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&family=Fira+Code:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    :root{--bg:#090c10;--bg2:#0d1117;--bg3:#141b25;--accent:#00ff88;--accent2:#00d4ff;--text:#e2e8f0;--text-muted:#64748b;--text-dim:#94a3b8;--border:rgba(0,255,136,0.12);--border2:rgba(255,255,255,0.06);--glow:0 0 30px rgba(0,255,136,0.2);--card-bg:rgba(20,27,37,0.8);--font-display:'Syne',sans-serif;--font-mono:'Fira Code',monospace;--font-body:'Space Mono',monospace;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{font-family:var(--font-body);background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.7;font-size:14px;}
+    a{color:var(--accent);text-decoration:none;transition:all 0.3s ease;}
+    a:hover{color:var(--accent2);}
+    ::selection{background:rgba(0,255,136,0.25);color:#fff;}
+    .accent{color:var(--accent);}
+    ::-webkit-scrollbar{width:4px;}::-webkit-scrollbar-track{background:var(--bg);}::-webkit-scrollbar-thumb{background:var(--accent);border-radius:2px;}
+    .cursor-dot{width:6px;height:6px;background:var(--accent);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);}
+    .cursor-ring{width:36px;height:36px;border:1.5px solid rgba(0,255,136,0.5);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:transform 0.12s ease-out,width 0.3s,height 0.3s;}
+    @media(hover:none){.cursor-dot,.cursor-ring{display:none;}}
+    #navbar{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:1.2rem 4rem;transition:all 0.4s ease;}
+    #navbar.scrolled{background:rgba(9,12,16,0.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0.8rem 4rem;}
+    .nav-logo{font-family:var(--font-display);font-size:1.5rem;font-weight:800;letter-spacing:-0.5px;color:var(--text);text-decoration:none;}
+    .nav-logo:hover{color:var(--text);}
+    .nav-links{display:flex;list-style:none;gap:2rem;align-items:center;}
+    .nav-links a{font-family:var(--font-mono);font-size:0.78rem;color:var(--text-dim);letter-spacing:0.5px;text-transform:uppercase;position:relative;}
+    .nav-links a::after{content:'';position:absolute;left:0;bottom:-3px;width:0;height:1px;background:var(--accent);transition:width 0.3s;}
+    .nav-links a:hover{color:var(--accent);}
+    .nav-links a:hover::after,.nav-active::after{width:100%!important;}
+    .nav-active{color:var(--accent)!important;}
+    .nav-cta{padding:0.5rem 1.2rem!important;border:1px solid var(--accent)!important;border-radius:4px;color:var(--accent)!important;}
+    .nav-cta:hover{background:var(--accent)!important;color:var(--bg)!important;}
+    .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;z-index:1001;padding:4px;}
+    .hamburger span{width:24px;height:2px;background:var(--text);border-radius:2px;transition:all 0.3s ease;display:block;}
+    .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+    .hamburger.open span:nth-child(2){opacity:0;}
+    .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+    .btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.8rem 1.8rem;border-radius:4px;font-family:var(--font-mono);font-size:0.8rem;font-weight:500;cursor:pointer;transition:all 0.3s ease;border:none;text-decoration:none;}
+    .btn-primary{background:var(--accent);color:var(--bg);box-shadow:0 0 20px rgba(0,255,136,0.3);}
+    .btn-primary:hover{background:#00cc70;transform:translateY(-2px);color:var(--bg);}
+    .btn-secondary{background:transparent;color:var(--accent2);border:1px solid var(--accent2);}
+    .btn-secondary:hover{background:rgba(0,212,255,0.1);transform:translateY(-2px);color:var(--accent2);}
+    .container{max-width:1200px;margin:0 auto;padding:0 2rem;}
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease;}
+    .reveal.visible{opacity:1;transform:translateY(0);}
+    @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(0,255,136,0.6);}50%{box-shadow:0 0 0 6px rgba(0,255,136,0);}}
+    /* HERO */
+    .page-hero{position:relative;padding:150px 0 60px;overflow:hidden;border-bottom:1px solid var(--border2);}
+    .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 50% 0%,rgba(0,255,136,0.06) 0%,transparent 60%),linear-gradient(180deg,var(--bg2) 0%,var(--bg) 100%);z-index:0;}
+    .hero-bg::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(0,255,136,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(0,255,136,0.025) 1px,transparent 1px);background-size:60px 60px;}
+    .hero-content{position:relative;z-index:1;}
+    .hero-label{font-family:var(--font-mono);font-size:0.8rem;color:var(--accent);letter-spacing:2px;margin-bottom:1rem;display:block;}
+    .hero-title{font-family:var(--font-display);font-size:clamp(2.5rem,7vw,5rem);font-weight:800;line-height:1.05;letter-spacing:-2px;margin-bottom:1rem;}
+    .hero-sub{font-size:0.95rem;color:var(--text-muted);margin-bottom:2rem;}
+    .hero-actions{display:flex;gap:1rem;flex-wrap:wrap;}
+    /* RESUME LAYOUT */
+    .resume-section{padding:60px 0 100px;}
+    .resume-grid{display:grid;grid-template-columns:280px 1fr;gap:3rem;align-items:start;}
+    .resume-sidebar{display:flex;flex-direction:column;position:sticky;top:100px;}
+    .sidebar-block{padding:1.5rem 0;border-bottom:1px solid var(--border2);}
+    .sidebar-block:first-child{padding-top:0;}
+    .sidebar-title{font-family:var(--font-display);font-size:0.8rem;font-weight:700;color:var(--text-dim);letter-spacing:1px;text-transform:uppercase;margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem;}
+    .sidebar-title i{color:var(--accent);font-size:0.75rem;}
+    .sidebar-list{list-style:none;display:flex;flex-direction:column;gap:0.7rem;}
+    .sidebar-list li{display:flex;align-items:flex-start;gap:0.7rem;font-family:var(--font-mono);font-size:0.75rem;color:var(--text-dim);}
+    .sidebar-list li i{color:var(--accent);font-size:0.75rem;width:14px;flex-shrink:0;margin-top:2px;}
+    .sidebar-list li a{color:var(--text-dim);word-break:break-all;}
+    .sidebar-list li a:hover{color:var(--accent);}
+    .edu-degree{font-family:var(--font-display);font-size:0.9rem;font-weight:700;color:var(--text);display:block;margin-bottom:0.2rem;}
+    .edu-school{font-family:var(--font-mono);font-size:0.75rem;color:var(--accent);display:block;margin-bottom:0.3rem;}
+    .edu-status{display:inline-flex;align-items:center;gap:0.4rem;font-family:var(--font-mono);font-size:0.68rem;color:var(--text-muted);}
+    .status-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite;flex-shrink:0;}
+    .skill-pills{display:flex;flex-wrap:wrap;gap:0.4rem;}
+    .skill-pill{padding:0.25rem 0.6rem;border-radius:4px;font-family:var(--font-mono);font-size:0.65rem;border:1px solid transparent;}
+    .sp-py{background:rgba(52,168,83,0.1);color:#4ade80;border-color:rgba(52,168,83,0.2);}
+    .sp-js{background:rgba(240,219,79,0.1);color:#fbbf24;border-color:rgba(240,219,79,0.2);}
+    .sp-html{background:rgba(228,77,38,0.1);color:#f87171;border-color:rgba(228,77,38,0.2);}
+    .sp-css{background:rgba(38,77,228,0.1);color:#60a5fa;border-color:rgba(38,77,228,0.2);}
+    .sp-git{background:rgba(240,80,50,0.1);color:#fb923c;border-color:rgba(240,80,50,0.2);}
+    .sp-linux{background:rgba(255,200,0,0.08);color:#fbbf24;border-color:rgba(255,200,0,0.2);}
+    .sp-vscode{background:rgba(0,122,204,0.1);color:#60a5fa;border-color:rgba(0,122,204,0.2);}
+    .sp-net{background:rgba(0,212,255,0.08);color:var(--accent2);border-color:rgba(0,212,255,0.2);}
+    .comp-list{list-style:none;display:flex;flex-direction:column;gap:0.5rem;}
+    .comp-list li{display:flex;align-items:center;gap:0.6rem;font-family:var(--font-mono);font-size:0.75rem;color:var(--text-dim);}
+    .comp-list li i{color:var(--accent);font-size:0.6rem;}
+    /* MAIN */
+    .resume-main{display:flex;flex-direction:column;}
+    .resume-block{padding:2rem 0;border-bottom:1px solid var(--border2);}
+    .resume-block:last-child{border-bottom:none;}
+    .block-title{font-family:var(--font-display);font-size:1rem;font-weight:700;color:var(--text);margin-bottom:1.5rem;display:flex;align-items:center;gap:0.7rem;text-transform:uppercase;letter-spacing:1px;}
+    .block-icon{width:32px;height:32px;border-radius:8px;background:rgba(0,255,136,0.08);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:0.8rem;flex-shrink:0;}
+    .summary-text{font-size:0.88rem;color:var(--text-dim);line-height:1.9;}
+    .skills-table{display:flex;flex-direction:column;gap:0.8rem;}
+    .skill-row{display:grid;grid-template-columns:180px 1fr;gap:1rem;align-items:start;padding:0.8rem;background:var(--bg3);border-radius:8px;border:1px solid var(--border2);}
+    .skill-label{font-family:var(--font-mono);font-size:0.72rem;color:var(--text-muted);padding-top:0.15rem;}
+    .skill-tags{display:flex;flex-wrap:wrap;gap:0.4rem;}
+    .skill-tags span{padding:0.2rem 0.6rem;background:rgba(0,255,136,0.06);border:1px solid rgba(0,255,136,0.12);border-radius:4px;font-family:var(--font-mono);font-size:0.65rem;color:var(--accent);}
+    .rp-card{padding:1.5rem;background:var(--bg3);border:1px solid var(--border2);border-radius:12px;margin-bottom:1rem;transition:all 0.3s;}
+    .rp-card:last-child{margin-bottom:0;}
+    .rp-card:hover{border-color:var(--border);}
+    .rp-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.8rem;gap:1rem;}
+    .rp-header h3{font-family:var(--font-display);font-size:1rem;font-weight:700;color:var(--text);margin-bottom:0.2rem;}
+    .rp-stack{font-family:var(--font-mono);font-size:0.68rem;color:var(--accent);display:block;}
+    .rp-link{font-family:var(--font-mono);font-size:0.7rem;color:var(--text-muted);display:flex;align-items:center;gap:0.3rem;white-space:nowrap;flex-shrink:0;transition:color 0.2s;}
+    .rp-link:hover{color:var(--accent);}
+    .rp-card>p{font-size:0.8rem;color:var(--text-muted);line-height:1.8;margin-bottom:1rem;}
+    .rp-list{list-style:none;display:flex;flex-direction:column;gap:0.35rem;}
+    .rp-list li{font-family:var(--font-mono);font-size:0.73rem;color:var(--text-dim);display:flex;align-items:center;gap:0.5rem;}
+    .rp-list li::before{content:'▸';color:var(--accent);font-size:0.6rem;flex-shrink:0;}
+    .act-list{list-style:none;display:flex;flex-direction:column;}
+    .act-list li{display:flex;gap:1.2rem;padding-bottom:1.5rem;position:relative;}
+    .act-list li::before{content:'';position:absolute;left:7px;top:20px;bottom:0;width:1px;background:var(--border2);}
+    .act-list li:last-child::before{display:none;}
+    .act-dot{width:14px;height:14px;border-radius:50%;border:2px solid var(--accent);background:rgba(0,255,136,0.1);flex-shrink:0;margin-top:3px;position:relative;z-index:1;}
+    .act-list li h4{font-family:var(--font-display);font-size:0.9rem;font-weight:700;color:var(--text);margin-bottom:0.3rem;}
+    .act-list li p{font-size:0.78rem;color:var(--text-muted);line-height:1.7;}
+    /* FOOTER */
+    #footer{background:var(--bg2);border-top:1px solid var(--border2);padding:2.5rem 2rem;}
+    .footer-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
+    .footer-logo{font-family:var(--font-display);font-size:1.3rem;font-weight:800;}
+    .footer-copy{font-family:var(--font-mono);font-size:0.72rem;color:var(--text-muted);}
+    .footer-socials{display:flex;gap:1rem;}
+    .footer-socials a{width:36px;height:36px;border-radius:8px;border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;color:var(--text-muted);font-size:0.9rem;transition:all 0.3s;}
+    .footer-socials a:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px);}
+    @media(max-width:768px){
+      #navbar{padding:1rem 1.5rem;}#navbar.scrolled{padding:0.7rem 1.5rem;}
+      .hamburger{display:flex;}
+      .nav-links{position:fixed;top:0;right:-100%;width:260px;height:100vh;background:rgba(9,12,16,0.98);backdrop-filter:blur(20px);border-left:1px solid var(--border);flex-direction:column;justify-content:center;gap:2rem;transition:right 0.4s ease;padding:2rem;}
+      .nav-links.open{right:0;}
+      .resume-grid{grid-template-columns:1fr;}
+      .resume-sidebar{position:static;}
+      .skill-row{grid-template-columns:1fr;gap:0.5rem;}
+      .hero-actions{flex-direction:column;}
+      .footer-inner{flex-direction:column;text-align:center;}
+    }
+  </style>
+</head>
+<body>
+<div class="cursor-dot"></div>
+<div class="cursor-ring"></div>
+
+<nav id="navbar">
+  <a href="index.html" class="nav-logo"><span class="accent">&lt;</span>KT<span class="accent">/&gt;</span></a>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#projects">Projects</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="resume.html" class="nav-active">Resume</a></li>
+    <li><a href="hire.html">Hire Me</a></li>
+    <li><a href="index.html#contact" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="page-hero">
+  <div class="hero-bg"></div>
+  <div class="container">
+    <div class="hero-content">
+      <span class="hero-label reveal">// curriculum_vitae</span>
+      <h1 class="hero-title reveal">Kelvin Njoroge <span class="accent">Thairu</span></h1>
+      <p class="hero-sub reveal">Computer Science Student &nbsp;·&nbsp; Aspiring Software Developer &nbsp;·&nbsp; Kenya 🇰🇪</p>
+      <div class="hero-actions reveal">
+        <a href="#" class="btn btn-primary" id="download-btn"><i class="fas fa-download"></i> Download Resume PDF</a>
+        <a href="index.html#contact" class="btn btn-secondary"><i class="fas fa-paper-plane"></i> Get In Touch</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="resume-section">
+  <div class="container">
+    <div class="resume-grid">
+
+      <!-- SIDEBAR -->
+      <aside class="resume-sidebar">
+        <div class="sidebar-block reveal">
+          <h3 class="sidebar-title"><i class="fas fa-address-card"></i> Contact</h3>
+          <ul class="sidebar-list">
+            <li><i class="fas fa-envelope"></i><a href="mailto:kelvinnjoroget@gmail.com">kelvinnjoroget@gmail.com</a></li>
+            <li><i class="fab fa-github"></i><a href="https://github.com/Keffonjoro" target="_blank">github.com/Keffonjoro</a></li>
+            <li><i class="fas fa-map-marker-alt"></i><span>Kenya 🇰🇪</span></li>
+          </ul>
+        </div>
+        <div class="sidebar-block reveal">
+          <h3 class="sidebar-title"><i class="fas fa-graduation-cap"></i> Education</h3>
+          <span class="edu-degree">BSc Computer Science</span>
+          <span class="edu-school">St Paul's University</span>
+          <span class="edu-status"><span class="status-dot"></span> Currently Enrolled</span>
+        </div>
+        <div class="sidebar-block reveal">
+          <h3 class="sidebar-title"><i class="fas fa-code"></i> Languages</h3>
+          <div class="skill-pills">
+            <span class="skill-pill sp-py">Python</span>
+            <span class="skill-pill sp-js">JavaScript</span>
+            <span class="skill-pill sp-html">HTML</span>
+            <span class="skill-pill sp-css">CSS</span>
+          </div>
+        </div>
+        <div class="sidebar-block reveal">
+          <h3 class="sidebar-title"><i class="fas fa-tools"></i> Tools</h3>
+          <div class="skill-pills">
+            <span class="skill-pill sp-git">Git</span>
+            <span class="skill-pill sp-git">GitHub</span>
+            <span class="skill-pill sp-linux">Linux</span>
+            <span class="skill-pill sp-vscode">VS Code</span>
+            <span class="skill-pill sp-net">Networking</span>
+          </div>
+        </div>
+        <div class="sidebar-block reveal">
+          <h3 class="sidebar-title"><i class="fas fa-star"></i> Competencies</h3>
+          <ul class="comp-list">
+            <li><i class="fas fa-check"></i> Problem Solving</li>
+            <li><i class="fas fa-check"></i> Debugging</li>
+            <li><i class="fas fa-check"></i> Version Control</li>
+            <li><i class="fas fa-check"></i> Technical Documentation</li>
+            <li><i class="fas fa-check"></i> Responsive Web Design</li>
+            <li><i class="fas fa-check"></i> Frontend Development</li>
+          </ul>
+        </div>
+      </aside>
+
+      <!-- MAIN -->
+      <main class="resume-main">
+        <div class="resume-block reveal">
+          <h2 class="block-title"><span class="block-icon"><i class="fas fa-user"></i></span>Professional Summary</h2>
+          <p class="summary-text">Motivated computer science student at St Paul's University with a strong interest in software development, cybersecurity, and problem solving through programming. Experienced in building small web applications and Python tools while continuously learning modern technologies. Actively seeking internship opportunities to apply academic knowledge in real-world environments and grow as a developer.</p>
+        </div>
+
+        <div class="resume-block reveal">
+          <h2 class="block-title"><span class="block-icon"><i class="fas fa-laptop-code"></i></span>Technical Skills</h2>
+          <div class="skills-table">
+            <div class="skill-row">
+              <span class="skill-label">Programming Languages</span>
+              <div class="skill-tags"><span>Python</span><span>JavaScript</span><span>HTML</span><span>CSS</span></div>
+            </div>
+            <div class="skill-row">
+              <span class="skill-label">Web Development</span>
+              <div class="skill-tags"><span>Responsive Design</span><span>Frontend Development</span><span>JavaScript Interactivity</span></div>
+            </div>
+            <div class="skill-row">
+              <span class="skill-label">Tools & Technologies</span>
+              <div class="skill-tags"><span>Git</span><span>GitHub</span><span>Linux</span><span>VS Code</span><span>Networking Fundamentals</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="resume-block reveal">
+          <h2 class="block-title"><span class="block-icon"><i class="fas fa-rocket"></i></span>Projects</h2>
+          <div class="rp-card">
+            <div class="rp-header">
+              <div><h3>Church Website — AIC Zion Zambezi</h3><span class="rp-stack">HTML · CSS · JavaScript</span></div>
+              <a href="index.html#projects" class="rp-link"><i class="fas fa-external-link-alt"></i> View</a>
+            </div>
+            <p>Developed a responsive church website to improve digital communication within the congregation. Features include announcements, prayer requests, and event information, built with a focus on accessibility and mobile-first design.</p>
+            <ul class="rp-list">
+              <li>Fully responsive layout across mobile, tablet, and desktop</li>
+              <li>Prayer request submission functionality</li>
+              <li>Events and announcements section</li>
+            </ul>
+          </div>
+          <div class="rp-card">
+            <div class="rp-header">
+              <div><h3>Python Practice Projects</h3><span class="rp-stack">Python</span></div>
+              <a href="index.html#projects" class="rp-link"><i class="fas fa-external-link-alt"></i> View</a>
+            </div>
+            <p>A growing collection of Python scripts focused on automation, small utilities, and problem-solving exercises that demonstrate applied programming knowledge.</p>
+            <ul class="rp-list">
+              <li>File automation and batch processing scripts</li>
+              <li>Problem-solving algorithms and utilities</li>
+              <li>Data processing tools</li>
+            </ul>
+          </div>
+          <div class="rp-card">
+            <div class="rp-header">
+              <div><h3>Cybersecurity Learning Lab</h3><span class="rp-stack">Linux · Networking · Security</span></div>
+              <a href="index.html#projects" class="rp-link"><i class="fas fa-external-link-alt"></i> View</a>
+            </div>
+            <p>Hands-on experimentation with basic cybersecurity concepts including network security principles, encryption basics, and system safety practices in a controlled environment.</p>
+            <ul class="rp-list">
+              <li>Network security fundamentals and threat analysis</li>
+              <li>Encryption and decryption experiments</li>
+              <li>Ethical hacking basics and system hardening</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="resume-block reveal">
+          <h2 class="block-title"><span class="block-icon"><i class="fas fa-users"></i></span>Activities & Involvement</h2>
+          <ul class="act-list">
+            <li><div class="act-dot"></div><div><h4>Self-Directed Programming Practice</h4><p>Consistent daily coding practice across web development and Python programming through personal projects.</p></div></li>
+            <li><div class="act-dot"></div><div><h4>Software Development Communities</h4><p>Active participation in online developer communities, contributing to discussions and learning from experienced developers.</p></div></li>
+            <li><div class="act-dot"></div><div><h4>Continuous Learning</h4><p>Ongoing study through coding projects, technical reading, and hands-on experimentation with new technologies.</p></div></li>
+          </ul>
+        </div>
+      </main>
+
+    </div>
+  </div>
+</section>
+
+<footer id="footer">
+  <div class="footer-inner">
+    <div class="footer-logo"><span class="accent">&lt;</span>KT<span class="accent">/&gt;</span></div>
+    <p class="footer-copy">© 2025 Kelvin Njoroge Thairu · Kenya 🇰🇪</p>
+    <div class="footer-socials">
+      <a href="https://github.com/Keffonjoro" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="mailto:kelvinnjoroget@gmail.com"><i class="fas fa-envelope"></i></a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const dot=document.querySelector('.cursor-dot'),ring=document.querySelector('.cursor-ring');
+  document.addEventListener('mousemove',e=>{dot.style.left=e.clientX+'px';dot.style.top=e.clientY+'px';ring.style.left=e.clientX+'px';ring.style.top=e.clientY+'px';});
+  const nav=document.getElementById('navbar');
+  window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40));
+  const ham=document.getElementById('hamburger'),nls=document.getElementById('nav-links');
+  ham.addEventListener('click',()=>{ham.classList.toggle('open');nls.classList.toggle('open');});
+  nls.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{ham.classList.remove('open');nls.classList.remove('open');}));
+  const ro=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');ro.unobserve(e.target);}}),{threshold:0.08});
+  document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+  document.getElementById('download-btn').addEventListener('click',e=>{
+    e.preventDefault();
+    const t=document.createElement('div');
+    t.textContent='📄 To save as PDF: Press Ctrl+P (or Cmd+P on Mac) and choose "Save as PDF"';
+    Object.assign(t.style,{position:'fixed',bottom:'2rem',right:'2rem',background:'rgba(9,12,16,0.97)',border:'1px solid rgba(0,255,136,0.3)',color:'#e2e8f0',padding:'1rem 1.4rem',borderRadius:'10px',fontFamily:'"Fira Code",monospace',fontSize:'0.78rem',zIndex:'9999',backdropFilter:'blur(20px)',maxWidth:'340px',lineHeight:'1.6',boxShadow:'0 8px 32px rgba(0,0,0,0.5)',transition:'opacity 0.3s ease'});
+    document.body.appendChild(t);
+    setTimeout(()=>{t.style.opacity='0';setTimeout(()=>t.remove(),300);},5000);
+  });
+</script>
+</body>
+</html>

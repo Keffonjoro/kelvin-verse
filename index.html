@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kelvin Thairu — Software Developer</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&family=Fira+Code:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+
+<!-- ========== CURSOR ========== -->
+<div class="cursor-dot"></div>
+<div class="cursor-ring"></div>
+
+<!-- ========== NAV ========== -->
+<nav id="navbar">
+  <div class="nav-logo"><span class="accent">&lt;</span>KT<span class="accent">/&gt;</span></div>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#stack">Stack</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#github">GitHub</a></li>
+    <li><a href="#blog">Journal</a></li>
+    <li><a href="#contact" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ========== HERO ========== -->
+<section id="hero">
+  <canvas id="matrix-canvas"></canvas>
+  <div class="hero-grid-overlay"></div>
+
+  <div class="hero-content">
+    <div class="hero-badge reveal">
+      <span class="badge-dot"></span>
+      Available for opportunities
+    </div>
+    <h1 class="hero-name reveal">Hi, I'm<br/><span class="name-highlight">Kelvin Thairu</span></h1>
+    <div class="hero-sub reveal">
+      <span class="static-text">I build my future through </span>
+      <span class="typed-wrapper"><span id="typed-text"></span><span class="cursor-blink">|</span></span>
+    </div>
+    <p class="hero-tagline reveal">Computer Science Student &nbsp;·&nbsp; Kenya 🇰🇪</p>
+    <div class="hero-btns reveal">
+      <a href="#projects" class="btn btn-primary">
+        <i class="fas fa-rocket"></i> View Projects
+      </a>
+      <a href="#contact" class="btn btn-secondary">
+        <i class="fas fa-paper-plane"></i> Contact Me
+      </a>
+      <a href="#" class="btn btn-ghost" id="dl-resume">
+        <i class="fas fa-download"></i> Resume
+      </a>
+    </div>
+  </div>
+
+  <div class="hero-scroll-hint">
+    <span>scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ========== ABOUT ========== -->
+<section id="about">
+  <div class="container">
+    <div class="section-label reveal">// 01. about_me</div>
+    <div class="about-grid">
+      <div class="about-image-col reveal">
+        <div class="avatar-frame">
+          <div class="avatar-inner">
+            <i class="fas fa-user-astronaut"></i>
+          </div>
+          <div class="avatar-ring r1"></div>
+          <div class="avatar-ring r2"></div>
+          <div class="avatar-glow"></div>
+        </div>
+        <div class="about-stats">
+          <div class="stat-card">
+            <span class="stat-num">4+</span>
+            <span class="stat-label">Projects Built</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num">5+</span>
+            <span class="stat-label">Technologies</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num">∞</span>
+            <span class="stat-label">Curiosity</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-text-col reveal">
+        <h2 class="section-title">Crafting Code,<br/><span class="accent">Building the Future</span></h2>
+        <p class="about-bio">
+          I'm a passionate computer science student from Kenya with a relentless drive to solve real-world problems through technology. My journey spans <strong>web development</strong>, <strong>cybersecurity</strong>, <strong>data science</strong>, and <strong>machine learning</strong> — and I'm just getting started.
+        </p>
+        <p class="about-bio">
+          I believe in continuous learning, building things that matter, and contributing to the global tech community. Every line of code I write is a step toward becoming the developer I'm determined to be.
+        </p>
+
+        <div class="values-chips">
+          <span class="chip"><i class="fas fa-infinity"></i> Continuous Learning</span>
+          <span class="chip"><i class="fas fa-puzzle-piece"></i> Problem Solving</span>
+          <span class="chip"><i class="fas fa-lightbulb"></i> Innovation</span>
+          <span class="chip"><i class="fas fa-dumbbell"></i> Discipline</span>
+          <span class="chip"><i class="fas fa-handshake"></i> Collaboration</span>
+        </div>
+
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-content">
+              <span class="tl-year">2022</span>
+              <h4>Started Computer Science</h4>
+              <p>Enrolled in CS program — first line of code written.</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-content">
+              <span class="tl-year">2023</span>
+              <h4>Learning Python</h4>
+              <p>Fell in love with Python — scripting, automation, and algorithms.</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-content">
+              <span class="tl-year">2024</span>
+              <h4>Exploring Cybersecurity</h4>
+              <p>Diving into network security, ethical hacking, and encryption.</p>
+            </div>
+          </div>
+          <div class="tl-item active">
+            <div class="tl-dot"></div>
+            <div class="tl-content">
+              <span class="tl-year">Now</span>
+              <h4>Building Real Projects</h4>
+              <p>Turning knowledge into deployed, real-world applications.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== TECH STACK ========== -->
+<section id="stack">
+  <div class="container">
+    <div class="section-label reveal">// 02. tech_stack</div>
+    <h2 class="section-title center reveal">My <span class="accent">Arsenal</span></h2>
+    <p class="section-sub reveal">Technologies I use and actively study</p>
+
+    <div class="stack-categories reveal">
+      <div class="stack-cat">
+        <div class="cat-header"><i class="fas fa-globe"></i> Frontend</div>
+        <div class="tech-grid">
+          <div class="tech-card" data-skill="85">
+            <div class="tech-icon html-icon"><i class="fab fa-html5"></i></div>
+            <span class="tech-name">HTML5</span>
+            <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+          </div>
+          <div class="tech-card" data-skill="80">
+            <div class="tech-icon css-icon"><i class="fab fa-css3-alt"></i></div>
+            <span class="tech-name">CSS3</span>
+            <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+          </div>
+          <div class="tech-card" data-skill="70">
+            <div class="tech-icon js-icon"><i class="fab fa-js-square"></i></div>
+            <span class="tech-name">JavaScript</span>
+            <div class="skill-bar"><div class="skill-fill" data-width="70"></div></div>
+          </div>
+          <div class="tech-card" data-skill="55">
+            <div class="tech-icon react-icon"><i class="fab fa-react"></i></div>
+            <span class="tech-name">React</span>
+            <div class="skill-bar"><div class="skill-fill" data-width="55"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="stack-cat">
+        <div class="cat-header"><i class="fas fa-server"></i> Backend</div>
+        <div class="tech-grid">
+          <div class="tech-card" data-skill="78">
+            <div class="tech-icon py-icon"><i class="fab fa-python"></i></div>
+            <span class="tech-name">Python</span>
+            <div class="skill-bar"><div class="skill-fill" data-width="78"></div></div>
+          </div>
+          <div class="tech-card" data-skill="50">
+            <div class="tech-icon node-icon"><i class="fab fa-node-js"></i></div>
+            <span class="tech-name">Node.js</span>
+            <div class="skill-bar"><div class="skill-fill" data-width="50"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="stack-cat">
+        <div class="cat-header"><i class="fas fa-tools"></i> Tools & Systems</div>
+        <div class="tech-grid">
+          <div class="tech-card" data-skill="75">
+            <div class="tech-icon git-icon"><i class="fab fa-git-alt"></i></div>
+            <span class="tech-name">Git</span>
+            <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
+          </div>
+          <div class="tech-card" data-skill="72">
+            <div class="tech-icon gh-icon"><i class="fab fa-github"></i></div>
+            <span class="tech-name">GitHub</span>
+            <div class="skill-bar"><div class="skill-fill" data-width="72"></div></div>
+          </div>
+          <div class="tech-card" data-skill="65">
+            <div class="tech-icon linux-icon"><i class="fab fa-linux"></i></div>
+            <span class="tech-name">Linux</span>
+            <div class="skill-bar"><div class="skill-fill" data-width="65"></div></div>
+          </div>
+          <div class="tech-card" data-skill="60">
+            <div class="tech-icon net-icon"><i class="fas fa-network-wired"></i></div>
+            <span class="tech-name">Networking</span>
+            <div class="skill-bar"><div class="skill-fill" data-width="60"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PROJECTS ========== -->
+<section id="projects">
+  <div class="container">
+    <div class="section-label reveal">// 03. featured_projects</div>
+    <h2 class="section-title center reveal">What I've <span class="accent">Built</span></h2>
+    <p class="section-sub reveal">Real projects, real impact</p>
+
+    <div class="projects-grid reveal">
+
+      <div class="project-card featured">
+        <div class="project-number">01</div>
+        <div class="project-tags">
+          <span>HTML</span><span>CSS</span><span>JavaScript</span>
+        </div>
+        <div class="project-icon-wrap">
+          <i class="fas fa-church"></i>
+        </div>
+        <h3>Church Website</h3>
+        <p>A full website for AIC Zion Zambezi church, featuring prayer request submissions, an events calendar, and the pastor's weekly messages — connecting the congregation digitally.</p>
+        <div class="project-links">
+          <a href="#" class="proj-btn"><i class="fab fa-github"></i> Code</a>
+          <a href="#" class="proj-btn proj-live"><i class="fas fa-external-link-alt"></i> Live</a>
+        </div>
+        <div class="card-glow"></div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-number">02</div>
+        <div class="project-tags">
+          <span>Python</span><span>Automation</span>
+        </div>
+        <div class="project-icon-wrap">
+          <i class="fab fa-python"></i>
+        </div>
+        <h3>Python Learning Lab</h3>
+        <p>A curated collection of Python scripts tackling real-world problems — from file automation and web scraping to data processing and algorithmic challenges.</p>
+        <div class="project-links">
+          <a href="#" class="proj-btn"><i class="fab fa-github"></i> Code</a>
+          <a href="#" class="proj-btn proj-live"><i class="fas fa-external-link-alt"></i> Live</a>
+        </div>
+        <div class="card-glow"></div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-number">03</div>
+        <div class="project-tags">
+          <span>Linux</span><span>Networking</span><span>Security</span>
+        </div>
+        <div class="project-icon-wrap">
+          <i class="fas fa-shield-halved"></i>
+        </div>
+        <h3>Cybersecurity Lab</h3>
+        <p>Hands-on experiments with network security concepts, symmetric/asymmetric encryption, packet analysis, and ethical hacking fundamentals in a controlled lab environment.</p>
+        <div class="project-links">
+          <a href="#" class="proj-btn"><i class="fab fa-github"></i> Code</a>
+          <a href="#" class="proj-btn proj-live"><i class="fas fa-external-link-alt"></i> Live</a>
+        </div>
+        <div class="card-glow"></div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-number">04</div>
+        <div class="project-tags">
+          <span>HTML</span><span>CSS</span><span>JS</span>
+        </div>
+        <div class="project-icon-wrap">
+          <i class="fas fa-laptop-code"></i>
+        </div>
+        <h3>Personal Portfolio</h3>
+        <p>This very portfolio — a developer showcase built from scratch using pure HTML, CSS, and JavaScript with custom animations and a fully responsive layout.</p>
+        <div class="project-links">
+          <a href="#" class="proj-btn"><i class="fab fa-github"></i> Code</a>
+          <a href="#" class="proj-btn proj-live"><i class="fas fa-external-link-alt"></i> Live</a>
+        </div>
+        <div class="card-glow"></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== GITHUB ========== -->
+<section id="github">
+  <div class="container">
+    <div class="section-label reveal">// 04. github_activity</div>
+    <h2 class="section-title center reveal">On <span class="accent">GitHub</span></h2>
+    <p class="section-sub reveal">My open-source footprint</p>
+
+    <div class="github-profile-card reveal">
+      <div class="gh-avatar"><i class="fab fa-github"></i></div>
+      <div class="gh-info">
+        <h3>@kelvinthairu</h3>
+        <p>Building in public · Kenya 🇰🇪</p>
+        <a href="https://github.com/kelvinthairu" target="_blank" class="btn btn-primary sm">
+          <i class="fab fa-github"></i> Visit Profile
+        </a>
+      </div>
+    </div>
+
+    <div class="gh-repos reveal">
+      <div class="repo-card">
+        <div class="repo-top">
+          <i class="fas fa-book-open"></i>
+          <span class="repo-lang python">Python</span>
+        </div>
+        <h4>python-learning-lab</h4>
+        <p>Scripts and experiments as I master Python programming</p>
+        <div class="repo-meta"><i class="fas fa-star"></i> 4 &nbsp;<i class="fas fa-code-branch"></i> 1</div>
+      </div>
+      <div class="repo-card">
+        <div class="repo-top">
+          <i class="fas fa-book-open"></i>
+          <span class="repo-lang js">JavaScript</span>
+        </div>
+        <h4>church-website</h4>
+        <p>AIC Zion Zambezi church website with events and prayer features</p>
+        <div class="repo-meta"><i class="fas fa-star"></i> 6 &nbsp;<i class="fas fa-code-branch"></i> 2</div>
+      </div>
+      <div class="repo-card">
+        <div class="repo-top">
+          <i class="fas fa-book-open"></i>
+          <span class="repo-lang shell">Shell</span>
+        </div>
+        <h4>cybersec-lab</h4>
+        <p>Ethical hacking fundamentals and network security experiments</p>
+        <div class="repo-meta"><i class="fas fa-star"></i> 3 &nbsp;<i class="fas fa-code-branch"></i> 0</div>
+      </div>
+      <div class="repo-card">
+        <div class="repo-top">
+          <i class="fas fa-book-open"></i>
+          <span class="repo-lang html">HTML</span>
+        </div>
+        <h4>portfolio</h4>
+        <p>My personal developer portfolio — open source and customizable</p>
+        <div class="repo-meta"><i class="fas fa-star"></i> 11 &nbsp;<i class="fas fa-code-branch"></i> 3</div>
+      </div>
+    </div>
+
+    <div class="contrib-heatmap reveal">
+      <p class="heatmap-label">Contribution Activity</p>
+      <div class="heatmap-grid" id="heatmap"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== BLOG ========== -->
+<section id="blog">
+  <div class="container">
+    <div class="section-label reveal">// 05. learning_journal</div>
+    <h2 class="section-title center reveal">My <span class="accent">Journal</span></h2>
+    <p class="section-sub reveal">Writing as I learn — articles, discoveries, and lessons</p>
+
+    <div class="blog-grid reveal">
+      <article class="blog-card featured-blog">
+        <div class="blog-cat cybersec">Cybersecurity</div>
+        <div class="blog-date">March 2025</div>
+        <h3>How Symmetric Encryption Actually Works: A Student's Breakdown</h3>
+        <p>I spent two weeks confused about AES encryption. Here's the plain-English explanation I wish I had from day one, with Python code examples to illustrate each step.</p>
+        <a href="#" class="blog-read">Read article <i class="fas fa-arrow-right"></i></a>
+      </article>
+
+      <article class="blog-card">
+        <div class="blog-cat python">Python</div>
+        <div class="blog-date">February 2025</div>
+        <h3>5 Python Scripts That Saved Me Hours of Manual Work</h3>
+        <p>Automation is powerful. These five scripts changed how I interact with my file system, emails, and data — and they're under 50 lines each.</p>
+        <a href="#" class="blog-read">Read article <i class="fas fa-arrow-right"></i></a>
+      </article>
+
+      <article class="blog-card">
+        <div class="blog-cat webdev">Web Dev</div>
+        <div class="blog-date">January 2025</div>
+        <h3>Building the Church Website: Lessons From My First Real Client</h3>
+        <p>What they don't teach you in CS class: client communication, iterating on feedback, and shipping software that real people will actually use every day.</p>
+        <a href="#" class="blog-read">Read article <i class="fas fa-arrow-right"></i></a>
+      </article>
+
+      <article class="blog-card">
+        <div class="blog-cat ml">Machine Learning</div>
+        <div class="blog-date">December 2024</div>
+        <h3>My First Steps Into Machine Learning: What I Got Wrong</h3>
+        <p>I thought ML was all about neural networks. Turns out, understanding linear regression, data cleaning, and feature engineering matters far more at the start.</p>
+        <a href="#" class="blog-read">Read article <i class="fas fa-arrow-right"></i></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CONTACT ========== -->
+<section id="contact">
+  <div class="container">
+    <div class="section-label reveal">// 06. contact</div>
+    <h2 class="section-title center reveal">Let's <span class="accent">Connect</span></h2>
+    <p class="section-sub reveal">Got an opportunity, project, or just want to talk tech? I'd love to hear from you.</p>
+
+    <div class="contact-grid reveal">
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fab fa-github"></i></div>
+          <div>
+            <span class="ci-label">GitHub</span>
+            <a href="https://github.com/kelvinthairu" target="_blank">github.com/kelvinthairu</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fab fa-linkedin"></i></div>
+          <div>
+            <span class="ci-label">LinkedIn</span>
+            <a href="https://linkedin.com/in/kelvinthairu" target="_blank">linkedin.com/in/kelvinthairu</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+          <div>
+            <span class="ci-label">Email</span>
+            <a href="mailto:kelvin@example.com">kelvin@example.com</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div>
+            <span class="ci-label">Location</span>
+            <span>Kenya 🇰🇪</span>
+          </div>
+        </div>
+
+        <div class="availability-badge">
+          <span class="avail-dot"></span>
+          Open to internships & projects
+        </div>
+      </div>
+
+      <form class="contact-form" id="contact-form">
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" placeholder="John Doe" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Your Email</label>
+          <input type="email" id="email" placeholder="john@example.com" required />
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" rows="5" placeholder="Tell me about your project or opportunity..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary full">
+          <i class="fas fa-paper-plane"></i> Send Message
+        </button>
+        <div class="form-success" id="form-success">
+          <i class="fas fa-check-circle"></i> Message sent! I'll reply soon.
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer id="footer">
+  <div class="footer-inner">
+    <div class="footer-logo"><span class="accent">&lt;</span>KT<span class="accent">/&gt;</span></div>
+    <p class="footer-copy">© 2025 Kelvin Thairu · Built with passion from Kenya 🇰🇪</p>
+    <div class="footer-socials">
+      <a href="https://github.com/kelvinthairu" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://linkedin.com/in/kelvinthairu" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="mailto:kelvin@example.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Projects — Kelvin Njoroge Thairu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&family=Fira+Code:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    :root{--bg:#090c10;--bg2:#0d1117;--bg3:#141b25;--accent:#00ff88;--accent2:#00d4ff;--text:#e2e8f0;--text-muted:#64748b;--text-dim:#94a3b8;--border:rgba(0,255,136,0.12);--border2:rgba(255,255,255,0.06);--glow:0 0 30px rgba(0,255,136,0.2);--card-bg:rgba(20,27,37,0.8);--font-display:'Syne',sans-serif;--font-mono:'Fira Code',monospace;--font-body:'Space Mono',monospace;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{font-family:var(--font-body);background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.7;font-size:14px;}
+    a{color:var(--accent);text-decoration:none;transition:all 0.3s ease;}
+    a:hover{color:var(--accent2);}
+    ::selection{background:rgba(0,255,136,0.25);color:#fff;}
+    .accent{color:var(--accent);}
+    ::-webkit-scrollbar{width:4px;}::-webkit-scrollbar-track{background:var(--bg);}::-webkit-scrollbar-thumb{background:var(--accent);border-radius:2px;}
+    /* CURSOR */
+    .cursor-dot{width:6px;height:6px;background:var(--accent);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);}
+    .cursor-ring{width:36px;height:36px;border:1.5px solid rgba(0,255,136,0.5);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:transform 0.12s ease-out,width 0.3s,height 0.3s;}
+    .cursor-ring.hovered{width:56px;height:56px;border-color:var(--accent);}
+    @media(hover:none){.cursor-dot,.cursor-ring{display:none;}}
+    /* NAV */
+    #navbar{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:1.2rem 4rem;transition:all 0.4s ease;}
+    #navbar.scrolled{background:rgba(9,12,16,0.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0.8rem 4rem;}
+    .nav-logo{font-family:var(--font-display);font-size:1.5rem;font-weight:800;letter-spacing:-0.5px;color:var(--text);text-decoration:none;}
+    .nav-logo:hover{color:var(--text);}
+    .nav-links{display:flex;list-style:none;gap:2rem;align-items:center;}
+    .nav-links a{font-family:var(--font-mono);font-size:0.78rem;color:var(--text-dim);letter-spacing:0.5px;text-transform:uppercase;position:relative;}
+    .nav-links a::after{content:'';position:absolute;left:0;bottom:-3px;width:0;height:1px;background:var(--accent);transition:width 0.3s;}
+    .nav-links a:hover{color:var(--accent);}
+    .nav-links a:hover::after,.nav-active::after{width:100%!important;}
+    .nav-active{color:var(--accent)!important;}
+    .nav-cta{padding:0.5rem 1.2rem!important;border:1px solid var(--accent)!important;border-radius:4px;color:var(--accent)!important;}
+    .nav-cta:hover{background:var(--accent)!important;color:var(--bg)!important;}
+    .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;z-index:1001;padding:4px;}
+    .hamburger span{width:24px;height:2px;background:var(--text);border-radius:2px;transition:all 0.3s ease;display:block;}
+    .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+    .hamburger.open span:nth-child(2){opacity:0;}
+    .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+    /* BUTTONS */
+    .btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.8rem 1.8rem;border-radius:4px;font-family:var(--font-mono);font-size:0.8rem;font-weight:500;cursor:pointer;transition:all 0.3s ease;border:none;text-decoration:none;}
+    .btn-primary{background:var(--accent);color:var(--bg);box-shadow:0 0 20px rgba(0,255,136,0.3);}
+    .btn-primary:hover{background:#00cc70;transform:translateY(-2px);color:var(--bg);}
+    .btn-ghost{background:transparent;color:var(--text-dim);border:1px solid var(--border2);}
+    .btn-ghost:hover{color:var(--text);border-color:var(--text-dim);transform:translateY(-2px);}
+    /* LAYOUT */
+    .container{max-width:1200px;margin:0 auto;padding:0 2rem;}
+    .section-label{font-family:var(--font-mono);font-size:0.78rem;color:var(--accent);letter-spacing:2px;margin-bottom:1.5rem;}
+    .section-title{font-family:var(--font-display);font-size:clamp(2rem,5vw,3.2rem);font-weight:800;line-height:1.1;margin-bottom:1rem;letter-spacing:-1px;}
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease;}
+    .reveal.visible{opacity:1;transform:translateY(0);}
+    /* HERO */
+    .page-hero{position:relative;padding:150px 0 80px;overflow:hidden;border-bottom:1px solid var(--border2);}
+    .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 50% 0%,rgba(0,255,136,0.06) 0%,transparent 60%),linear-gradient(180deg,var(--bg2) 0%,var(--bg) 100%);z-index:0;}
+    .hero-bg::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(0,255,136,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(0,255,136,0.025) 1px,transparent 1px);background-size:60px 60px;}
+    .hero-content{position:relative;z-index:1;max-width:800px;}
+    .hero-label{font-family:var(--font-mono);font-size:0.8rem;color:var(--accent);letter-spacing:2px;margin-bottom:1rem;display:block;}
+    .hero-title{font-family:var(--font-display);font-size:clamp(2.5rem,7vw,5rem);font-weight:800;line-height:1.05;letter-spacing:-2px;margin-bottom:1rem;}
+    .hero-sub{font-size:0.95rem;color:var(--text-muted);line-height:1.8;margin-bottom:2rem;max-width:600px;}
+    /* FILTERS */
+    .proj-filters{padding:40px 0 0;background:var(--bg);}
+    .filter-row{display:flex;align-items:center;gap:0.6rem;flex-wrap:wrap;}
+    .filter-lbl{font-family:var(--font-mono);font-size:0.7rem;color:var(--text-muted);margin-right:0.5rem;letter-spacing:0.5px;}
+    .f-chip{padding:0.35rem 1rem;border-radius:50px;font-family:var(--font-mono);font-size:0.72rem;border:1px solid var(--border2);background:transparent;color:var(--text-muted);cursor:pointer;transition:all 0.25s;}
+    .f-chip:hover{border-color:var(--accent);color:var(--accent);}
+    .f-chip.active{background:rgba(0,255,136,0.1);border-color:var(--accent);color:var(--accent);}
+    /* PROJECTS GRID */
+    .projects-sec{padding:40px 0 100px;background:var(--bg);}
+    .proj-count{font-family:var(--font-mono);font-size:0.75rem;color:var(--text-muted);margin-bottom:2rem;}
+    .proj-count span{color:var(--accent);font-weight:700;}
+    .projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:1.5rem;}
+    /* PROJECT CARD */
+    .proj-card{background:var(--card-bg);border:1px solid var(--border2);border-radius:16px;overflow:hidden;transition:all 0.35s ease;display:flex;flex-direction:column;}
+    .proj-card:hover{border-color:var(--border);transform:translateY(-6px);box-shadow:var(--glow);}
+    .proj-card.featured-proj{border-color:rgba(0,255,136,0.2);}
+    .proj-screenshot{height:180px;background:var(--bg3);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--border2);}
+    .proj-screenshot-bg{position:absolute;inset:0;opacity:0.4;}
+    .proj-screenshot-icon{font-size:3.5rem;position:relative;z-index:1;transition:transform 0.4s ease;}
+    .proj-card:hover .proj-screenshot-icon{transform:scale(1.15);}
+    .proj-num{position:absolute;top:1rem;left:1rem;font-family:var(--font-display);font-size:0.7rem;font-weight:800;color:rgba(255,255,255,0.15);letter-spacing:1px;z-index:2;}
+    .proj-featured-badge{position:absolute;top:1rem;right:1rem;background:rgba(0,255,136,0.15);border:1px solid rgba(0,255,136,0.3);color:var(--accent);font-family:var(--font-mono);font-size:0.6rem;padding:0.2rem 0.6rem;border-radius:50px;text-transform:uppercase;z-index:2;}
+    .proj-body{padding:1.5rem;display:flex;flex-direction:column;gap:0.8rem;flex:1;}
+    .proj-tags{display:flex;flex-wrap:wrap;gap:0.4rem;}
+    .proj-tag{padding:0.2rem 0.55rem;border-radius:4px;font-family:var(--font-mono);font-size:0.62rem;border:1px solid transparent;}
+    .tag-html{background:rgba(228,77,38,0.1);color:#f87171;border-color:rgba(228,77,38,0.2);}
+    .tag-css{background:rgba(38,77,228,0.1);color:#60a5fa;border-color:rgba(38,77,228,0.2);}
+    .tag-js{background:rgba(240,219,79,0.1);color:#fbbf24;border-color:rgba(240,219,79,0.2);}
+    .tag-py{background:rgba(52,168,83,0.12);color:#4ade80;border-color:rgba(52,168,83,0.2);}
+    .tag-net{background:rgba(0,212,255,0.08);color:var(--accent2);border-color:rgba(0,212,255,0.2);}
+    .proj-body h3{font-family:var(--font-display);font-size:1.1rem;font-weight:700;color:var(--text);line-height:1.3;}
+    .proj-problem{font-family:var(--font-mono);font-size:0.68rem;color:var(--accent);margin-bottom:0.2rem;display:flex;align-items:center;gap:0.4rem;}
+    .proj-body p{font-size:0.8rem;color:var(--text-muted);line-height:1.8;}
+    .proj-features{list-style:none;display:flex;flex-direction:column;gap:0.3rem;margin-top:0.3rem;}
+    .proj-features li{font-family:var(--font-mono);font-size:0.72rem;color:var(--text-dim);display:flex;align-items:center;gap:0.5rem;}
+    .proj-features li::before{content:'▸';color:var(--accent);font-size:0.6rem;flex-shrink:0;}
+    .proj-links{display:flex;gap:0.7rem;margin-top:auto;padding-top:1rem;border-top:1px solid var(--border2);}
+    .proj-btn{display:inline-flex;align-items:center;gap:0.4rem;padding:0.5rem 1rem;border-radius:6px;font-family:var(--font-mono);font-size:0.7rem;border:1px solid var(--border2);color:var(--text-dim);transition:all 0.3s;background:transparent;}
+    .proj-btn:hover{border-color:var(--accent);color:var(--accent);background:rgba(0,255,136,0.04);}
+    .proj-btn.live{border-color:rgba(0,212,255,0.2);color:var(--accent2);}
+    .proj-btn.live:hover{background:rgba(0,212,255,0.06);border-color:var(--accent2);}
+    /* NO RESULTS */
+    .no-results{display:none;flex-direction:column;align-items:center;gap:1rem;padding:4rem;color:var(--text-muted);font-family:var(--font-mono);font-size:0.85rem;text-align:center;}
+    .no-results i{font-size:2.5rem;color:var(--border2);}
+    .no-results.visible{display:flex;}
+    /* GITHUB CTA */
+    .gh-cta-sec{padding:0 0 100px;background:var(--bg);}
+    .gh-cta-card{display:flex;align-items:center;justify-content:space-between;gap:2rem;padding:2.5rem 3rem;background:linear-gradient(135deg,rgba(0,255,136,0.03),rgba(0,212,255,0.02));border:1px solid var(--border);border-radius:20px;flex-wrap:wrap;}
+    .gh-cta-left h3{font-family:var(--font-display);font-size:1.6rem;font-weight:800;margin-bottom:0.5rem;letter-spacing:-0.5px;}
+    .gh-cta-left p{font-size:0.85rem;color:var(--text-muted);max-width:480px;line-height:1.8;}
+    /* FOOTER */
+    #footer{background:var(--bg2);border-top:1px solid var(--border2);padding:2.5rem 2rem;}
+    .footer-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
+    .footer-logo{font-family:var(--font-display);font-size:1.3rem;font-weight:800;}
+    .footer-copy{font-family:var(--font-mono);font-size:0.72rem;color:var(--text-muted);}
+    .footer-socials{display:flex;gap:1rem;}
+    .footer-socials a{width:36px;height:36px;border-radius:8px;border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;color:var(--text-muted);font-size:0.9rem;transition:all 0.3s;}
+    .footer-socials a:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px);}
+    @media(max-width:768px){
+      #navbar{padding:1rem 1.5rem;}#navbar.scrolled{padding:0.7rem 1.5rem;}
+      .hamburger{display:flex;}
+      .nav-links{position:fixed;top:0;right:-100%;width:260px;height:100vh;background:rgba(9,12,16,0.98);backdrop-filter:blur(20px);border-left:1px solid var(--border);flex-direction:column;justify-content:center;gap:2rem;transition:right 0.4s ease;padding:2rem;}
+      .nav-links.open{right:0;}
+      .projects-grid{grid-template-columns:1fr;}
+      .gh-cta-card{flex-direction:column;text-align:center;padding:2rem;}
+      .footer-inner{flex-direction:column;text-align:center;}
+    }
+  </style>
+</head>
+<body>
+<div class="cursor-dot"></div>
+<div class="cursor-ring"></div>
+
+<nav id="navbar">
+  <a href="index.html" class="nav-logo"><span class="accent">&lt;</span>KT<span class="accent">/&gt;</span></a>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="projects.html" class="nav-active">Projects</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="resume.html">Resume</a></li>
+    <li><a href="hire.html">Hire Me</a></li>
+    <li><a href="index.html#contact" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="hero-bg"></div>
+  <div class="container">
+    <div class="hero-content">
+      <span class="hero-label reveal">// project_showcase</span>
+      <h1 class="hero-title reveal">Things I've <span class="accent">Built</span></h1>
+      <p class="hero-sub reveal">Real projects built while learning — each one solving a genuine problem or teaching me something new. From web apps to Python automation tools and cybersecurity experiments.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FILTERS -->
+<div class="proj-filters">
+  <div class="container">
+    <div class="filter-row reveal">
+      <span class="filter-lbl">Filter by:</span>
+      <button class="f-chip active" data-filter="all">All Projects</button>
+      <button class="f-chip" data-filter="web">Web Dev</button>
+      <button class="f-chip" data-filter="python">Python</button>
+      <button class="f-chip" data-filter="cybersecurity">Cybersecurity</button>
+    </div>
+  </div>
+</div>
+
+<!-- PROJECTS -->
+<section class="projects-sec">
+  <div class="container">
+    <p class="proj-count reveal"><span id="proj-count">9</span> projects</p>
+    <div class="projects-grid" id="projects-grid">
+
+      <!-- 1: Church Website -->
+      <div class="proj-card featured-proj reveal" data-category="web">
+        <div class="proj-screenshot" style="background:linear-gradient(135deg,#0d1117,#141b25);">
+          <div class="proj-screenshot-bg" style="background:radial-gradient(circle at 60% 40%,rgba(0,255,136,0.15),transparent 70%);"></div>
+          <i class="fas fa-church proj-screenshot-icon" style="color:var(--accent);"></i>
+          <span class="proj-num">01</span>
+          <span class="proj-featured-badge">Featured</span>
+        </div>
+        <div class="proj-body">
+          <div class="proj-tags">
+            <span class="proj-tag tag-html">HTML</span>
+            <span class="proj-tag tag-css">CSS</span>
+            <span class="proj-tag tag-js">JavaScript</span>
+          </div>
+          <h3>Church Website — AIC Zion Zambezi</h3>
+          <p class="proj-problem"><i class="fas fa-lightbulb"></i> Problem: The church had no digital presence for its congregation.</p>
+          <p>A responsive church website built to improve communication within the community. Members can view announcements, submit prayer requests, and find event information — all from any device.</p>
+          <ul class="proj-features">
+            <li>Announcements and event information board</li>
+            <li>Prayer request submission form</li>
+            <li>Fully responsive mobile-first layout</li>
+          </ul>
+          <div class="proj-links">
+            <a href="https://github.com/Keffonjoro" target="_blank" class="proj-btn"><i class="fab fa-github"></i> Code</a>
+            <a href="#" class="proj-btn live"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2: Task Manager -->
+      <div class="proj-card reveal" data-category="web">
+        <div class="proj-screenshot" style="background:linear-gradient(135deg,#0d1117,#141b25);">
+          <div class="proj-screenshot-bg" style="background:radial-gradient(circle at 40% 60%,rgba(0,212,255,0.12),transparent 70%);"></div>
+          <i class="fas fa-tasks proj-screenshot-icon" style="color:var(--accent2);"></i>
+          <span class="proj-num">02</span>
+        </div>
+        <div class="proj-body">
+          <div class="proj-tags">
+            <span class="proj-tag tag-html">HTML</span>
+            <span class="proj-tag tag-css">CSS</span>
+            <span class="proj-tag tag-js">JavaScript</span>
+          </div>
+          <h3>Student Task Manager</h3>
+          <p class="proj-problem"><i class="fas fa-lightbulb"></i> Problem: Students forget deadlines and lose track of assignments.</p>
+          <p>A simple browser-based task manager that helps students organize assignments, set deadlines, and track their progress — no account needed, works entirely in the browser.</p>
+          <ul class="proj-features">
+            <li>Add, edit, and delete tasks instantly</li>
+            <li>Mark tasks as complete with visual feedback</li>
+            <li>Task categories for organization</li>
+          </ul>
+          <div class="proj-links">
+            <a href="https://github.com/Keffonjoro" target="_blank" class="proj-btn"><i class="fab fa-github"></i> Code</a>
+            <a href="#" class="proj-btn live"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3: File Organizer -->
+      <div class="proj-card reveal" data-category="python">
+        <div class="proj-screenshot" style="background:linear-gradient(135deg,#0d1117,#141b25);">
+          <div class="proj-screenshot-bg" style="background:radial-gradient(circle at 50% 50%,rgba(74,222,128,0.1),transparent 70%);"></div>
+          <i class="fas fa-folder-open proj-screenshot-icon" style="color:#4ade80;"></i>
+          <span class="proj-num">03</span>
+        </div>
+        <div class="proj-body">
+          <div class="proj-tags">
+            <span class="proj-tag tag-py">Python</span>
+          </div>
+          <h3>Python File Organizer</h3>
+          <p class="proj-problem"><i class="fas fa-lightbulb"></i> Problem: Downloads folders become cluttered and hard to navigate.</p>
+          <p>An automation script that scans a directory and automatically sorts files into categorized subfolders based on file type — PDFs, images, code files, documents, and more.</p>
+          <ul class="proj-features">
+            <li>Detects and sorts 10+ file types automatically</li>
+            <li>Logs every move with timestamps</li>
+            <li>Safe mode: preview changes before applying</li>
+          </ul>
+          <div class="proj-links">
+            <a href="https://github.com/Keffonjoro" target="_blank" class="proj-btn"><i class="fab fa-github"></i> Code</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4: Password Checker -->
+      <div class="proj-card reveal" data-category="python">
+        <div class="proj-screenshot" style="background:linear-gradient(135deg,#0d1117,#141b25);">
+          <div class="proj-screenshot-bg" style="background:radial-gradient(circle at 60% 30%,rgba(167,139,250,0.1),transparent 70%);"></div>
+          <i class="fas fa-lock proj-screenshot-icon" style="color:#a78bfa;"></i>
+          <span class="proj-num">04</span>
+        </div>
+        <div class="proj-body">
+          <div class="proj-tags">
+            <span class="proj-tag tag-py">Python</span>
+          </div>
+          <h3>Password Strength Checker</h3>
+          <p class="proj-problem"><i class="fas fa-lightbulb"></i> Problem: Most people use weak passwords without realizing it.</p>
+          <p>A Python CLI tool that evaluates password strength against security best practices and provides specific, actionable recommendations for creating stronger, safer passwords.</p>
+          <ul class="proj-features">
+            <li>Scores passwords across 6 security criteria</li>
+            <li>Gives specific improvement suggestions</li>
+            <li>Checks against common password patterns</li>
+          </ul>
+          <div class="proj-links">
+            <a href="https://github.com/Keffonjoro" target="_blank" class="proj-btn"><i class="fab fa-github"></i> Code</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5: Portfolio -->
+      <div class="proj-card reveal" data-category="web">
+        <div class="proj-screenshot" style="background:linear-gradient(135deg,#0d1117,#141b25);">
+          <div class="proj-screenshot-bg" style="background:radial-gradient(circle at 40% 50%,rgba(0,255,136,0.08),transparent 70%);"></div>
+          <i class="fas fa-laptop-code proj-screenshot-icon" style="color:var(--accent);"></i>
+          <span class="proj-num">05</span>
+        </div>
+        <div class="proj-body">
+          <div class="proj-tags">
+            <span class="proj-tag tag-html">HTML</span>
+            <span class="proj-tag tag-css">CSS</span>
+            <span class="proj-tag tag-js">JavaScript</span>
+          </div>
+          <h3>Personal Portfolio Website</h3>
+          <p class="proj-problem"><i class="fas fa-lightbulb"></i> Problem: Needed a professional online presence for recruiters and collaborators.</p>
+          <p>This portfolio — designed and built from scratch with zero frameworks. Features a dark cyberpunk aesthetic, smooth animations, matrix rain background, and full mobile responsiveness.</p>
+          <ul class="proj-features">
+            <li>Custom CSS animations and scroll reveals</li>
+            <li>Matrix rain canvas background</li>
+            <li>Deployed on Vercel with custom domain</li>
+          </ul>
+          <div class="proj-links">
+            <a href="https://github.com/Keffonjoro" target="_blank" class="proj-btn"><i class="fab fa-github"></i> Code</a>
+            <a href="index.html" class="proj-btn live"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6: Weather App -->
+      <div class="proj-card reveal" data-category="web">
+        <div class="proj-screenshot" style="background:linear-gradient(135deg,#0d1117,#141b25);">
+          <div class="proj-screenshot-bg" style="background:radial-gradient(circle at 50% 40%,rgba(0,212,255,0.1),transparent 70%);"></div>
+          <i class="fas fa-cloud-sun proj-screenshot-icon" style="color:var(--accent2);"></i>
+          <span class="proj-num">06</span>
+        </div>
+        <div class="proj-body">
+          <div class="proj-tags">
+            <span class="proj-tag tag-js">JavaScript</span>
+            <span class="proj-tag tag-html">HTML</span>
+            <span class="proj-tag tag-css">CSS</span>
+          </div>
+          <h3>Simple Weather App</h3>
+          <p class="proj-problem"><i class="fas fa-lightbulb"></i> Problem: Needed hands-on practice working with real-world APIs.</p>
+          <p>A web application that fetches live weather data from a public API and displays current conditions, temperature, and forecasts for any city — my first project consuming a real API.</p>
+          <ul class="proj-features">
+            <li>Live weather data via public API</li>
+            <li>Search any city worldwide</li>
+            <li>Responsive card-based display</li>
+          </ul>
+          <div class="proj-links">
+            <a href="https://github.com/Keffonjoro" target="_blank" class="proj-btn"><i class="fab fa-github"></i> Code</a>
+            <a href="#" class="proj-btn live"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7: Notes App -->
+      <div class="proj-card reveal" data-category="web">
+        <div class="proj-screenshot" style="background:linear-gradient(135deg,#0d1117,#141b25);">
+          <div class="proj-screenshot-bg" style="background:radial-gradient(circle at 30% 60%,rgba(251,191,36,0.08),transparent 70%);"></div>
+          <i class="fas fa-sticky-note proj-screenshot-icon" style="color:#fbbf24;"></i>
+          <span class="proj-num">07</span>
+        </div>
+        <div class="proj-body">
+          <div class="proj-tags">
+            <span class="proj-tag tag-js">JavaScript</span>
+            <span class="proj-tag tag-html">HTML</span>
+            <span class="proj-tag tag-css">CSS</span>
+          </div>
+          <h3>Notes Web Application</h3>
+          <p class="proj-problem"><i class="fas fa-lightbulb"></i> Problem: Needed a fast, distraction-free way to jot and save notes.</p>
+          <p>A lightweight browser-based notes app that saves everything to localStorage — no signup, no server. Open it, write, and your notes are there next time you come back.</p>
+          <ul class="proj-features">
+            <li>Auto-saves to browser localStorage</li>
+            <li>Create, edit, and delete notes</li>
+            <li>Minimal, distraction-free interface</li>
+          </ul>
+          <div class="proj-links">
+            <a href="https://github.com/Keffonjoro" target="_blank" class="proj-btn"><i class="fab fa-github"></i> Code</a>
+            <a href="#" class="proj-btn live"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 8: Network Scanner -->
+      <div class="proj-card reveal" data-category="cybersecurity">
+        <div class="proj-screenshot" style="background:linear-gradient(135deg,#0d1117,#141b25);">
+          <div class="proj-screenshot-bg" style="background:radial-gradient(circle at 60% 40%,rgba(167,139,250,0.1),transparent 70%);"></div>
+          <i class="fas fa-network-wired proj-screenshot-icon" style="color:#a78bfa;"></i>
+          <span class="proj-num">08</span>
+        </div>
+        <div class="proj-body">
+          <div class="proj-tags">
+            <span class="proj-tag tag-py">Python</span>
+            <span class="proj-tag tag-net">Networking</span>
+          </div>
+          <h3>Basic Network Scanner</h3>
+          <p class="proj-problem"><i class="fas fa-lightbulb"></i> Problem: Wanted to understand how devices are discovered on a network.</p>
+          <p>A beginner cybersecurity project that explores network discovery — scanning for active devices, open ports, and basic host information within a local network environment, for educational purposes only.</p>
+          <ul class="proj-features">
+            <li>Discovers active hosts on local network</li>
+            <li>Identifies open ports and services</li>
+            <li>Built for ethical and educational use</li>
+          </ul>
+          <div class="proj-links">
+            <a href="https://github.com/Keffonjoro" target="_blank" class="proj-btn"><i class="fab fa-github"></i> Code</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 9: CSV Analyzer -->
+      <div class="proj-card reveal" data-category="python">
+        <div class="proj-screenshot" style="background:linear-gradient(135deg,#0d1117,#141b25);">
+          <div class="proj-screenshot-bg" style="background:radial-gradient(circle at 40% 50%,rgba(74,222,128,0.08),transparent 70%);"></div>
+          <i class="fas fa-chart-bar proj-screenshot-icon" style="color:#4ade80;"></i>
+          <span class="proj-num">09</span>
+        </div>
+        <div class="proj-body">
+          <div class="proj-tags">
+            <span class="proj-tag tag-py">Python</span>
+          </div>
+          <h3>CSV Data Analyzer</h3>
+          <p class="proj-problem"><i class="fas fa-lightbulb"></i> Problem: Raw CSV data is hard to understand without processing.</p>
+          <p>A Python script that reads any CSV file and instantly generates descriptive statistics, identifies missing values, and produces a clean summary — an introduction to practical data analysis.</p>
+          <ul class="proj-features">
+            <li>Reads any well-formed CSV file</li>
+            <li>Generates min, max, mean, and median</li>
+            <li>Identifies and reports missing values</li>
+          </ul>
+          <div class="proj-links">
+            <a href="https://github.com/Keffonjoro" target="_blank" class="proj-btn"><i class="fab fa-github"></i> Code</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="no-results" id="no-results"><i class="fas fa-search"></i><p>No projects match that filter.</p></div>
+  </div>
+</section>
+
+<!-- GITHUB CTA -->
+<section class="gh-cta-sec">
+  <div class="container">
+    <div class="gh-cta-card reveal">
+      <div class="gh-cta-left">
+        <h3>See Everything on <span class="accent">GitHub</span></h3>
+        <p>All source code, commit history, and work-in-progress projects live on my GitHub. Follow along as I build and improve.</p>
+      </div>
+      <a href="https://github.com/Keffonjoro" target="_blank" class="btn btn-primary">
+        <i class="fab fa-github"></i> Visit My GitHub
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer id="footer">
+  <div class="footer-inner">
+    <div class="footer-logo"><span class="accent">&lt;</span>KT<span class="accent">/&gt;</span></div>
+    <p class="footer-copy">© 2026 Kelvin Njoroge Thairu · Kenya 🇰🇪</p>
+    <div class="footer-socials">
+      <a href="https://github.com/Keffonjoro" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="mailto:kelvinnjoroget@gmail.com"><i class="fas fa-envelope"></i></a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Cursor
+  const dot=document.querySelector('.cursor-dot'),ring=document.querySelector('.cursor-ring');
+  document.addEventListener('mousemove',e=>{dot.style.left=e.clientX+'px';dot.style.top=e.clientY+'px';ring.style.left=e.clientX+'px';ring.style.top=e.clientY+'px';});
+  document.querySelectorAll('a,.proj-card').forEach(el=>{el.addEventListener('mouseenter',()=>ring.classList.add('hovered'));el.addEventListener('mouseleave',()=>ring.classList.remove('hovered'));});
+  // Navbar
+  const nav=document.getElementById('navbar');
+  window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40));
+  // Hamburger
+  const ham=document.getElementById('hamburger'),nls=document.getElementById('nav-links');
+  ham.addEventListener('click',()=>{ham.classList.toggle('open');nls.classList.toggle('open');});
+  nls.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{ham.classList.remove('open');nls.classList.remove('open');}));
+  // Reveal
+  const ro=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');ro.unobserve(e.target);}}),{threshold:0.08});
+  document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+  // Filter
+  let af='all';
+  const grid=document.getElementById('projects-grid'),noRes=document.getElementById('no-results'),countEl=document.getElementById('proj-count');
+  function filterProjects(){
+    const cards=grid.querySelectorAll('.proj-card');
+    let n=0;
+    cards.forEach(c=>{
+      const ok=af==='all'||c.dataset.category===af;
+      c.style.display=ok?'':'none';
+      if(ok)n++;
+    });
+    countEl.textContent=n;
+    noRes.classList.toggle('visible',n===0);
+  }
+  document.querySelectorAll('.f-chip').forEach(chip=>chip.addEventListener('click',()=>{
+    document.querySelectorAll('.f-chip').forEach(c=>c.classList.remove('active'));
+    chip.classList.add('active');
+    af=chip.dataset.filter;
+    filterProjects();
+  }));
+  // Card tilt
+  document.querySelectorAll('.proj-card').forEach(card=>{
+    card.addEventListener('mousemove',e=>{
+      const r=card.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;
+      const rx=((y-r.height/2)/r.height)*-4,ry=((x-r.width/2)/r.width)*4;
+      card.style.transform=`perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-6px)`;
+    });
+    card.addEventListener('mouseleave',()=>card.style.transform='');
+  });
+</script>
+</body>
+</html>
